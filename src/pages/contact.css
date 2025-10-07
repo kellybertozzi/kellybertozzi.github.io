@@ -19,21 +19,29 @@
 
 .contact-methods {
     display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
+    flex-wrap: nowrap; /* keep cards on one line when possible */
+    gap: 1rem; /* tighter spacing so cards sit together */
     margin-bottom: 3rem;
-    justify-content: center;
+    justify-content: center; /* center the group of cards */
+    align-items: stretch; /* make cards the same height */
 }
 
 .contact-card {
     background: #fff9fb;
-    padding: 1.5rem;
+    padding: 1.25rem 1rem;
     border-radius: 8px;
     text-align: center;
-    flex: 1;
-    min-width: 200px;
+    flex: 0 1 220px;     /* fixed-ish width so three fit together */
+    min-width: 180px;
+    max-width: 240px;    /* keep cards a compact size */
     border: 1px solid #ffb6d5;
     transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column; /* stack icon, title, link vertically */
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;        /* spacing between elements inside card */
+    margin-top: 0;      /* align baseline with siblings */
 }
 
 .contact-card:hover {
@@ -44,7 +52,19 @@
 .contact-card i {
     font-size: 2rem;
     color: #d23c77;
-    margin-bottom: 1rem;
+    margin: 0; /* keep icon aligned with title and text */
+}
+
+/* small screens: ensure cards stack and stay full-width */
+@media (max-width: 640px) {
+    .contact-methods {
+        justify-content: center;
+    }
+
+    .contact-card {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
 }
 
 
