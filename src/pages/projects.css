@@ -61,6 +61,15 @@
   background-color: #d23c77;
 }
 
+.project-icon {
+  font-size: 2.2rem;
+  color: #d23c77;
+  margin-bottom: 0.5rem;
+  display: block;
+  text-align: center;
+}
+
+
 /* Responsive layout */
 @media (max-width: 768px) {
   .project-card {

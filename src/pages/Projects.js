@@ -10,6 +10,7 @@ function Projects() {
         {/* Card 1 */}
         <div className="project-card">
           <h2>Personal Website</h2>
+          <i className="fa-solid fa-laptop-code project-icon"></i>
           <p>(You're viewing it right now!)</p>
           <ul>
             <li>Showcases my technical skills and projects</li>
@@ -29,6 +30,7 @@ function Projects() {
         {/* Card 2 */}
         <div className="project-card">
           <h2>Coffee Recommender System</h2>
+          <i className="fa-solid fa-mug-saucer project-icon"></i>
           <p>
             A machine learning system that recommends coffee orders based on
             user taste preferences.
