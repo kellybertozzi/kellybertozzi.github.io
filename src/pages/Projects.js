@@ -3,7 +3,8 @@ import "./projects.css";
 
 function Projects() {
   return (
-    <div className="projects">
+    // Adding a comment to fix
+    <section className="h-screen snap-start projects">
       <h1 className="projects-title">My Projects</h1>
 
       <div className="project-grid">
@@ -60,7 +61,7 @@ function Projects() {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 
