@@ -1,4 +1,5 @@
 import React from "react";
+import useFadeIn from "../hooks/useFadeIn";
 import "./style.css";
 import "../resume.css";
 
@@ -70,23 +71,38 @@ const skills = [
   "Analytical Thinking",
 ];
 
+function ResumeSection({ title, children, delay = 0 }) {
+  const [ref, isVisible] = useFadeIn(0.1);
+
+  return (
+    <div
+      ref={ref}
+      className={`resume-section fade-in ${isVisible ? "visible" : ""}`}
+      style={{ transitionDelay: `${delay}s` }}
+    >
+      <h2>{title}</h2>
+      {children}
+    </div>
+  );
+}
+
 function Resume() {
   return (
-    <div id="resume">
+    <div id="resume" aria-labelledby="resume-title">
       <div className="container">
         <div className="download-buttons">
           <a
             href={`${process.env.PUBLIC_URL}/Resume.pdf`}
             download
             className="btn"
+            aria-label="Download resume as PDF"
           >
             Download PDF
           </a>
         </div>
 
         <div className="resume-container">
-          <div className="resume-section">
-            <h2>Education</h2>
+          <ResumeSection title="Education" delay={0}>
             {education.map((edu) => (
               <div className="resume-item" key={edu.school}>
                 <h3>{edu.school}</h3>
@@ -95,10 +111,9 @@ function Resume() {
                 <p>Relevant Coursework: {edu.coursework}</p>
               </div>
             ))}
-          </div>
+          </ResumeSection>
 
-          <div className="resume-section">
-            <h2>Projects</h2>
+          <ResumeSection title="Projects" delay={0.1}>
             {resumeProjects.map((project) => (
               <div className="resume-item" key={project.title}>
                 <h3>
@@ -121,10 +136,9 @@ function Resume() {
                 </ul>
               </div>
             ))}
-          </div>
+          </ResumeSection>
 
-          <div className="resume-section">
-            <h2>Experience</h2>
+          <ResumeSection title="Experience" delay={0.2}>
             {experience.map((job) => (
               <div className="resume-item" key={job.title}>
                 <h3>{job.title}</h3>
@@ -136,18 +150,17 @@ function Resume() {
                 </ul>
               </div>
             ))}
-          </div>
+          </ResumeSection>
 
-          <div className="resume-section">
-            <h2>Skills</h2>
-            <div className="skills-list">
+          <ResumeSection title="Skills" delay={0.3}>
+            <div className="skills-list" role="list">
               {skills.map((skill) => (
-                <span className="skill-pill" key={skill}>
+                <span className="skill-pill" role="listitem" key={skill}>
                   {skill}
                 </span>
               ))}
             </div>
-          </div>
+          </ResumeSection>
         </div>
       </div>
     </div>
