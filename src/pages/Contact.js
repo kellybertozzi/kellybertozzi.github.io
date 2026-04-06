@@ -1,10 +1,34 @@
-import React from "react";
+import React, { useState } from "react";
 import "./contact.css";
-import "@fortawesome/fontawesome-free/css/all.min.css";
 
 function Contact() {
+  const [status, setStatus] = useState(null);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const data = new FormData(form);
+
+    try {
+      const response = await fetch("https://formspree.io/f/movklglp", {
+        method: "POST",
+        body: data,
+        headers: { Accept: "application/json" },
+      });
+
+      if (response.ok) {
+        setStatus("success");
+        form.reset();
+      } else {
+        setStatus("error");
+      }
+    } catch {
+      setStatus("error");
+    }
+  };
+
   return (
-    <div className="container">
+    <div id="contact" className="container">
       <div className="contact-container">
         <div className="contact-header">
           <h2>Get In Touch</h2>
@@ -44,24 +68,37 @@ function Contact() {
         </div>
 
         <div className="contact-form">
-          <form
-            action="https://formspree.io/f/movklglp"
-            method="POST"
-            noValidate
-          >
+          <form onSubmit={handleSubmit}>
             <div className="form-group">
               <label htmlFor="name">Name</label>
-              <input id="name" name="name" type="text" placeholder="Your name" required />
+              <input
+                id="name"
+                name="name"
+                type="text"
+                placeholder="Your name"
+                required
+              />
             </div>
 
             <div className="form-group">
               <label htmlFor="email">Email</label>
-              <input id="email" name="email" type="email" placeholder="you@example.com" required />
+              <input
+                id="email"
+                name="email"
+                type="email"
+                placeholder="you@example.com"
+                required
+              />
             </div>
 
             <div className="form-group full-width">
               <label htmlFor="message">Message</label>
-              <textarea id="message" name="message" placeholder="Write your message..." required />
+              <textarea
+                id="message"
+                name="message"
+                placeholder="Write your message..."
+                required
+              />
             </div>
 
             <div className="form-actions">
@@ -69,6 +106,17 @@ function Contact() {
                 Send
               </button>
             </div>
+
+            {status === "success" && (
+              <div className="status-message success">
+                Thanks for your message! I'll get back to you soon.
+              </div>
+            )}
+            {status === "error" && (
+              <div className="status-message error">
+                Something went wrong. Please try again or email me directly.
+              </div>
+            )}
           </form>
         </div>
       </div>

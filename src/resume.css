@@ -73,7 +73,7 @@
         max-width: 100%;
     }
     
-    nav, footer, .download-buttons {
+    .navbar, .download-buttons {
         display: none;
     }
 }

@@ -152,19 +152,16 @@
     margin-top: 1rem;
     border-radius: 4px;
     text-align: center;
-    display: none;
 }
 
-.success {
+.status-message.success {
     background: #d4edda;
     color: #155724;
-    display: block;
 }
 
-.error {
+.status-message.error {
     background: #f8d7da;
     color: #721c24;
-    display: block;
 }
 
 /* Font Awesome icons */

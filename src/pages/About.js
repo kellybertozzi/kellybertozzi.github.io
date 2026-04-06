@@ -3,8 +3,8 @@ import "./style.css";
 
 function About() {
   return (
-    <div className="container">
-      <section id="about">
+    <div id="about" className="container">
+      <section>
         <h2>About Me</h2>
         <div>
           <p>
