@@ -5,7 +5,9 @@ const titles = [
   "Computer Science Graduate",
   "Web Developer",
   "Machine Learning Enthusiast",
+  "AI Enthusiast",
   "Problem Solver",
+  "Cat & Coffee Enthusiast",
 ];
 
 function Hero() {
@@ -48,7 +50,7 @@ function Hero() {
       </div>
       <div className="hero-content">
         <p className="hero-greeting">Hello, I'm</p>
-        <h1 className="hero-name">Kelly Bertozzi</h1>
+        <h1 className="hero-name">Kelly Ann Bertozzi</h1>
         <div className="hero-title-wrapper">
           <span className="hero-title">
             {titles[titleIndex].substring(0, charIndex)}

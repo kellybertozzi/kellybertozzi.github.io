@@ -15,6 +15,27 @@ const education = [
 
 const resumeProjects = [
   {
+    title: "Coffee Preferences Form",
+    url: "https://coffee-form-three.vercel.app/",
+    date: "January 2026 - Current",
+    bullets: [
+      "Designed and implemented a responsive, multi-step web form to collect structured user input (e.g., sweetness, creaminess, flavor preferences), simulating real-world data intake systems.",
+      "Built and maintained a full-stack data pipeline using Supabase to securely store, retrieve, and manage user data.",
+      "Integrated frontend application with backend services and APIs to enable real-time data flow and processing.",
+      "Applied validation, structured data handling, and scalable design patterns relevant to enterprise systems.",
+    ],
+  },
+  {
+    title: "Coffee Preference Predictor - Machine Learning Project",
+    url: "https://github.com/kellybertozzi/Coffee-Predictor",
+    date: "May 2025 - Current",
+    bullets: [
+      "Designing a feed-forward neural network to predict coffee type and flavor preferences based on user inputs.",
+      "Implemented data preprocessing and feature encoding pipelines in Python.",
+      "Evaluating model architectures and performance metrics to iteratively improve prediction accuracy.",
+    ],
+  },
+  {
     title: "kellybertozzi.github.io - Personal Website",
     url: "https://kellybertozzi.github.io",
     date: "August 2025 - Current",
@@ -38,6 +59,16 @@ const resumeProjects = [
 ];
 
 const experience = [
+  {
+    title: "Ethos - Product Associate",
+    date: "January 2025 - Present | Boston, MA",
+    bullets: [
+      "Supported daily operations using Dutchie (POS system), ensuring accurate transaction processing and system reliability.",
+      "Managed backend system configurations including API key management and integration between METRC and Dutchie systems.",
+      "Troubleshoot system issues and ensured proper data flow between platforms, improving operational efficiency.",
+      "Collaborated with team members to optimize workflows and improve system usability in a fast-paced environment.",
+    ],
+  },
   {
     title: "Dunkin' - Crew Member",
     date: "February 2022 - May 2025 | Boston, MA",

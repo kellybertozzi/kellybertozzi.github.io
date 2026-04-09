@@ -7,7 +7,9 @@ import Contact from "./pages/Contact";
 import Footer from "./components/Footer";
 import ScrollProgress from "./components/ScrollProgress";
 import BackToTop from "./components/BackToTop";
+import AnimatedHearts from "./components/AnimatedHearts";
 import "./pages/style.css";
+import "./App.css";
 
 const sections = [
   { id: "projects", label: "Projects" },
@@ -19,6 +21,7 @@ const sections = [
 function App() {
   const [activeSection, setActiveSection] = useState("");
   const [navScrolled, setNavScrolled] = useState(false);
+  const [heartCount, setHeartCount] = useState(20);
 
   useEffect(() => {
     const observers = sections.map(({ id }) => {
@@ -52,7 +55,24 @@ function App() {
 
   return (
     <div>
+      <AnimatedHearts count={heartCount} />
       <ScrollProgress />
+      <BackToTop />
+      <div className="heart-settings">
+        <label htmlFor="heartCount">
+          Heart density
+          <span>{heartCount}</span>
+        </label>
+        <input
+          id="heartCount"
+          type="range"
+          min="10"
+          max="80"
+          step="5"
+          value={heartCount}
+          onChange={(e) => setHeartCount(Number(e.target.value))}
+        />
+      </div>
       <a className="skip-link" href="#projects">
         Skip to main content
       </a>
