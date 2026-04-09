@@ -1,11 +1,19 @@
 import React from "react";
+import useFadeIn from "../hooks/useFadeIn";
 import "./style.css";
 
 function About() {
+  const [ref, isVisible] = useFadeIn();
+
   return (
-    <div className="container">
-      <section id="about">
-        <h2>About Me</h2>
+    <div id="about" className="container">
+      <section
+        ref={ref}
+        className={`fade-in ${isVisible ? "visible" : ""}`}
+        aria-labelledby="about-title"
+      >
+        <span className="section-label">Background</span>
+        <h2 id="about-title">About Me</h2>
         <div>
           <p>
             Hello! My name is Kelly Bertozzi, and I am a recent computer science
